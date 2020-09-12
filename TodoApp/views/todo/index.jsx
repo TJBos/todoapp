@@ -1,11 +1,12 @@
 const React = require("react");
+const Layout = require("../Layout.jsx")
 
 class Index extends React.Component {
   render() {
     return (
-      <div>
+      <Layout title="Index">
         <a href="/todo/new">
-          <h3>New Todo</h3>
+          <button>New Todo</button>
         </a>
         <ul>
           {this.props.todos.map((todo, index) => {
@@ -16,7 +17,7 @@ class Index extends React.Component {
             );
           })}
         </ul>
-      </div>
+        </Layout>
     );
   }
 }

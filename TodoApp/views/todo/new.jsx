@@ -1,16 +1,17 @@
 const React = require("react");
+const Layout = require("../Layout.jsx")
 
 class New extends React.Component {
   render() {
     return (
-      <div>
-        <form action="/todo/" method="post">
+      <Layout title="New">
+        <form action="/todo/" method="POST">
           <label>
             New Todo <input type="text" name="todo" />
           </label>
           <input type="submit" value="new todo"></input>
         </form>
-      </div>
+        </Layout>
     );
   }
 }

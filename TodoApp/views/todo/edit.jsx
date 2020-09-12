@@ -1,14 +1,15 @@
 const React = require("react");
+const Layout = require("../Layout.jsx");
 
 class Edit extends React.Component {
   render() {
     return (
-      <div>
+      <Layout title="Edit">
         <form action={`/todo/${this.props.index}?_method=PUT`} method="post">
           <input type="text" name="todo" value={this.props.todo} />
           <input type="submit" value="Update" />
         </form>
-      </div>
+    </Layout>
     );
   }
 }

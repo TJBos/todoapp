@@ -21,15 +21,6 @@ router.post("/", (req, res) => {
     todos.push(req.body.todo);
     res.redirect("/todo");
 })
-
-//SHOW route //show an individual todo
-router.get("/:index", (req, res) => {
-    res.render("todo/show.jsx", {
-      todo: todos[req.params.index],
-      index: req.params.index,
-    });
-  });
-
 //DELETE
 
   router.delete("/:index", (req, res) => {
@@ -37,22 +28,31 @@ router.get("/:index", (req, res) => {
     res.redirect("/todo/");
   });
 
+
 //EDIT and UPDATE
-
-//EDIT - Page to update your todo
-router.get("/:index/edit", (req, res) => {
-  res.render("todo/edit.jsx", {
-    index: req.params.index,
-    todo: todos[req.params.index],
+  
+  //EDIT - Page to update your todo
+  router.get("/:index/edit", (req, res) => {
+    res.render("todo/edit.jsx", {
+      index: req.params.index,
+      todo: todos[req.params.index],
+    });
   });
-});
+  
+  //UPDATE - Update the specified record
+  router.put("/:index", (req, res) => {
+    todos[req.params.index] = req.body.todo;
+    res.redirect("/todo/");
+  });
+  
+  //SHOW route //show an individual todo
+  router.get("/:index", (req, res) => {
+      res.render("todo/show.jsx", {
+        todo: todos[req.params.index],
+        index: req.params.index,
+      });
+    });
 
-//UPDATE - Update the specified record
-router.put("/:index", (req, res) => {
-  todos[req.params.index] = req.body.todo;
-  res.redirect("/todo/");
-});
-
-
+    
 //Export Router to be used in Server.js
 module.exports = router;

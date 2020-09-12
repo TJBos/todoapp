@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
-//Import todo router
-
+//Import router from controllers
 const todoRouter = require("./controllers/todo");
-
+//Import method-override for form submissions
 const methodOverride = require('method-override');
 
 //MIDDLEWARE
@@ -18,7 +17,7 @@ app.use(methodOverride("_method"));
 //ROUTES AND ROUTERS
 
 app.get("/", (req, res) => {
-    res.send("testing");
+    res.send("Hello World");
 });
 //all requests to /todo URL go to the todoRouter
 app.use("/todo", todoRouter);

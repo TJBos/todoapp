@@ -1,9 +1,10 @@
 const React = require("react");
+const Layout = require("../Layout.jsx")
 
 class Show extends React.Component {
     render() {
         return (
-            <div>
+            <Layout title="Show">
                 <h1>{this.props.todo}</h1>
                 <form action={`/todo/${this.props.index}?_method=DELETE`} method="POST">
                     <input type="submit" value="delete" />
@@ -11,7 +12,7 @@ class Show extends React.Component {
                 <form action={`/todo/${this.props.index}/edit`} method="GET">
                     <input type="submit" value="edit"/>
                 </form>
-            </div>
+            </Layout>
         )
     }
 }
