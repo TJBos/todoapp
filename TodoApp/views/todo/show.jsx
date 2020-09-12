@@ -8,6 +8,9 @@ class Show extends React.Component {
                 <form action={`/todo/${this.props.index}?_method=DELETE`} method="POST">
                     <input type="submit" value="delete" />
                 </form>
+                <form action={`/todo/${this.props.index}/edit`} method="GET">
+                    <input type="submit" value="edit"/>
+                </form>
             </div>
         )
     }
